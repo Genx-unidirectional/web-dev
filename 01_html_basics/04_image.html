@@ -5,10 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="./images/invoices.jpg">
 </head>
+<style>
+    .bg-img {
+        height: 600px;
+        width: 600px;
+        background-color: aqua;
+        background-image: url(./images/invoices.jpg);
+        background-repeat: no-repeat;
+        /* background-size: cover;   */
+    }
+</style>
 
 <body>
-
+    <img src="./images/maptestimg.jpg" alt="table-stuff" usemap="#workspace">
+    <map name="workspace">
+        <area shape="rect" coords="34, 44, 270, 350" onclick="console.log('hello friend')" href="./02_quotation.html"
+            alt="navigator">
+        <!-- if shape is circle the we provide 2 co-ordinates and radius-->
+        <!-- if shape is polygon then we provide n number of coordinates which gonna cover the overall shape  -->
+    </map>
+    <div class="bg-img">
+    </div>
 </body>
 
 </html>
