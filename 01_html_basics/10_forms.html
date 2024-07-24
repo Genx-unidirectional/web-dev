@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms in html</title>
+</head>
+
+<body>
+    <!-- the action attribute in the forms specifies that the where to submit the form -->
+    <form action="">
+        <label for="uname">Name</label>
+        <input type="text" name="uname" id="uname">
+        <input type="number" name="" id="">
+        <div>
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="male" value="male">
+        </div>
+        <input type="checkbox" name="" id="">
+        <input type="date" name="" id="">
+        <input type="file">
+        <button type="submit">Submit</button>
+        <button type="reset">reset</button>
+        <div>
+
+            <!-- <select name="car" id="car">
+                <option value="volvo">Volvo</option>
+                <option value="mercedes">Mercedes</option>
+            </select> -->
+            <select name="car" id="car" size="2" multiple>
+                <option value="volvo">Volvo</option>
+                <option value="mercedes">Mercedes</option>
+            </select>
+        </div>
+        <input type="color">
+        <textarea name="" id=""></textarea>
+        <!-- here we can have different types of the input fields which are useful at several` -->
+    </form>
+    <form action="">
+        <!-- below we have fieldset  groups the similar data in one place-->
+        <fieldset>
+            <legend>here the caption for the fieldset comes</legend>
+        </fieldset>
+    </form>
+    <form action="">
+        <label for="">Choose browser</label>
+        <input list="browser">
+        <datalist id="browser">
+            <option value="opera">
+            <option value="mozilla">
+            <option value="chrome">
+
+        </datalist>
+    </form>
+    <form action="/action_page.php" oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        0
+        <input type="range" id="a" name="a" value="50">
+        100 +
+        <input type="number" id="b" name="b" value="50">
+        =
+        <output name="x" for="a b"></output>
+        <br><br>
+        <input type="submit">
+    </form>
+    <form>
+        <!-- input attributes -->
+        <input type="text" name="name" id="name" required>
+        <input type="text" name="name" id="name" readonly>
+        <input type="text" name="name" id="name" autocomplete="on">
+        <input type="number" name="name" max="10" min="0">
+        <input type="file" multiple>
+        <input type="text" autofocus>
+        <input type="text" name="" id="" maxlength="20">
+        <input type="text" name="" id="" size="2">
+        <div>
+
+            <label for="chooseCar">Choose car</label>
+            <input list="carchoose">
+            <datalist id="carchoose">
+                <option value="volvo">
+                <option value="ferrari">
+                <option value="mercedes">
+            </datalist>
+        </div>
+        <form>
+            <label for="country_code">Country code:</label>
+            <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}"
+                title="Three letter country code">
+            <input type="submit" name="" id="">
+        </form>
+    </form>
+    <!-- we can specify the id attribute to the form then we can use input outside of that form still access the text of that input -->
+    <form action="" id="form1" novalidate method="get">
+        <!-- below formnovalidate overrides the novalidate in the form -->
+        <input type="text" name="" id="" formnovalidate>
+        <!-- we can define the encoding for the form -->
+        <input type="text" name="" id="" formenctype="multipart/form-data">
+
+    </form>
+    <input type="text" name="" id="" form="form1">
+</body>
+
+</html>
