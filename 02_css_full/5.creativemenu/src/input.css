@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+
+
+    .effected{
+        opacity: 0;
+    }
+    .tooltip:hover + .effected{
+        opacity: 1;
+    }
+
