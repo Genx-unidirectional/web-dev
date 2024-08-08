@@ -33,3 +33,9 @@ console.log(["fish", , "goat"]);
 const fish = ["fish", , "goat"];
 console.log(fish[1]);
 console.log(fish.length);
+const obj = {
+    jump() {
+        return "jump";
+    },
+};
+obj.jump();
