@@ -13,12 +13,12 @@ function mapIt(callback, arr) {
     return mapedArr;
 }
 const arr1 = mapIt((item) => item * 2, [1, 2, 3, 4]);
-// we can use functions before they being made in the code because funtions are hoited
+// we can use functions before they being made in the code because functions are hoisted
 console.log(square(12));
 function square(x) {
     return x * x;
 }
-//Making the function which ca iterate over the dom tree recursively
+//Making the function which can iterate over the dom tree recursively
 function walkTree(node) {
     if (node === null) {
         return;
