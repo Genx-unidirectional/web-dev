@@ -134,5 +134,49 @@ const regex17 = /ga+nesh/;
 const regex18 = /ga*nesh/;
 // console.log(regex18.test("gnesh"));
 const regex19 = /gan?esh/;
-console.log(regex19.test("ganesh"));
+// console.log(regex19.test("ganesh"));
 const regex20 = /ga{1,}nesh/;
+// Write a function that accepts a positive number N.
+// The function should console log a step shape
+// with N levels using the # character.  Make sure the
+// step has spaces on the right hand side!
+function stepRightSpaceMaker(n) {
+    for (let i = 0; i < n; i++) {
+        let line = "";
+        for (let j = 0; j <= i; j++) {
+            line += "#";
+        }
+        console.log(line);
+    }
+}
+// stepRightSpaceMaker(5);
+// Write a function that accepts a positive number N.
+// The function should console log a pyramid shape
+// with N levels using the # character.  Make sure the
+// pyramid has spaces on both the left *and* right hand sides
+// --- Examples
+//   pyramid(1)
+//       '#'
+//   pyramid(2)
+//       ' # '
+//       '###'
+//   pyramid(3)
+//       '  #  '
+//       ' ### '
+//       '#####'
+function makePyramid(n) {
+    const mid = Math.floor((2 * n - 1) / 2);
+    for (let row = 0; row < n; row++) {
+        let line = "";
+        for (let col = 0; col < 2 * n - 1; col++) {
+            if (col >= mid - row && col <= mid + row) {
+                line += "#";
+            }
+            else {
+                line += " ";
+            }
+        }
+        console.log(line);
+    }
+}
+makePyramid(3);
