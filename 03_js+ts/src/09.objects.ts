@@ -79,4 +79,3 @@ function checkAnagram(str1: string, str2: string) {
 }
 
 console.log(checkAnagram("safety! rail!", "fairy tales"));
-s;

@@ -58,4 +58,3 @@ function checkAnagram(str1, str2) {
     return clearStr(str1) === clearStr(str2);
 }
 console.log(checkAnagram("safety! rail!", "fairy tales"));
-s;
