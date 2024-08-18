@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new posts</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="w-full h-screen bg-orange-200 flex flex-col justify-center gap-2 items-center ">
+    <div class="bg-white p-3 flex justify-center items-start rounded-md text-2xl font-bold  flex-col ">
+        <p>
+            Username:<%=post.id %>
+        </p>
+        <p>
+            id:<%=post.username %>
+        </p>
+    </div>
+    <form method="post" class="flex bg-orange-400 gap-2 rounded-md p-3 justify-center items-start  flex-col"
+        action="/posts/<%=post.id%>?_method=PATCH">
+        <label class="text-white font-bold text-2xl" for="102">Content</label>
+        <textarea name="content" id="102" class="w-full rounded-md p-2 text-2xl"><%= post.content %></textarea>
+        <button class="w-full p-2 text-2xl text-white rounded-md font-bold bg-orange-700">Submit</button>
+    </form>
+</body>
+
+</html>

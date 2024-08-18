@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quora</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="h-screen w-full relative bg-orange-200">
+    <header class="w-full p-2     top-0 left-0  bg-white">
+        <section class="w-[80%] flex justify-between items-center mx-auto">
+            <h1 class="text-orange-700 text-3xl font-bold">Quora</h1>
+
+            <a href="http://localhost:3000/new" class="bg-orange-700 rounded-md p-2 text-white text-2xl font-bold">Add
+                new</a>
+        </section>
+    </header>
+    <main class="w-[80%] mx-auto my-10">
+        <section class="flex flex-col justify-center gap-2 items-start">
+            <h2 class="w-full text-center font-bold text-4xl text-orange-400">Posts</h2>
+            <% for(let post of posts){ %>
+                <article class="flex p-2 rounded-lg flex-col gap-2  items-start bg-white">
+                    <h2 class="text-3xl font-medium ">
+                        <%= post.username %>
+                    </h2>
+                    <p>
+                        <%= post.content %>
+                    </p>
+                    <a href="http://localhost:3000/posts/<%=post.id%>/edit"
+                        class="bg-orange-700 rounded-md p-2 text-white text-2xl font-bold">Edit</a>
+                    <form method="post" action="http://localhost:3000/posts/<%=post.id%>?_method=DELETE"
+                        class="bg-orange-700 rounded-md p-2 text-white text-2xl font-bold">
+                        <button>delete</button>
+                    </form>
+                </article>
+                <% } %>
+        </section>
+    </main>
+</body>
+
+</html>
