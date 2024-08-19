@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="h-screen w-full">
+    <header class=" bg-green-500">
+        <section class="w-[80%] mx-auto flex  justify-between items-center p-3">
+
+            <h1 class="text-white font-bold text-3xl">WhatsApp </h1>
+            <form method="get" action="/chats/new">
+
+                <button class="p-2 text-2xl font-medium bg-white text-black rounded-md">New Chat</button>
+            </form>
+        </section>
+    </header>
+    <main class="bg-black  pt-12 flex justify-center  items-center">
+        <section class="w-[80%] mx-auto flex gap-4 flex-col  items-end">
+
+            <% for(let chat of chats){ %>
+                <div class="flex bg-white rounded-lg gap-3 flex-col items-start p-2">
+                    <p>From:<%= chat.from %>
+                    </p>
+                    <p>From:<%= chat.msg %>
+                    </p>
+                    <p>From:<%= chat.to %>
+                    </p>
+                    <div class="flex w-full flex-row justify-between items-center">
+
+                        <form method="get" action="/chats/<%= chat._id%>/edit">
+
+                            <button class="text-lg bg-black p-1 rounded-md text-white">edit</button>
+                        </form>
+                        <form method="post" action="/chats/<%= chat._id%>/delete?_method=DELETE">
+
+                            <button class="text-lg bg-black p-1 rounded-md text-white">Delete</button>
+                        </form>
+                    </div>
+                </div>
+                <% } %>
+        </section>
+    </main>
+</body>
+
+</html>

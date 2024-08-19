@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="bg-black h-screen w-full flex justify-center items-center">
+    <form method="post" class="flex flex-col gap-3 items-start bg-white rounded-lg p-3" action="/chats">
+        <label class="text-black font-medium text-2xl" for="101">From:</label>
+
+        <input class="rounded-lg p-1 text-xl font-medium bg-white text-black border border-black w-full" type="text"
+            name="from" id="101">
+        <label class="text-black font-medium text-2xl" for="102">To:</label>
+        <input class="rounded-lg p-1 text-xl font-medium bg-white text-black border border-black w-full" type="text"
+            name="to" id="102">
+        <label class="text-black font-medium text-2xl" for="103">Message:</label>
+        <textarea class="w-full rounded-lg bg-white text-black text-2xl p-2 border border-black " name="message"
+            id="103"></textarea>
+        <button class="bg-black text-white p-2 text-xl font-medium rounded-lg ">Submit</button>
+    </form>
+</body>
+
+</html>
