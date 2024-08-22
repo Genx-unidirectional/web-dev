@@ -1,0 +1,35 @@
+<header class="  sticky top-0 left-0  w-full shadow-sm shadow-slate-500 border-slate-500">
+    <section class="flex z-50 px-2 py-5 bg-white  justify-between sm:justify-normal relative items-center">
+
+        <h1 class="px-4 ">
+            <a hre f="/">
+                <i class="fa-regular fa-compass text-red-500 text-3xl"></i>
+            </a>
+        </h1>
+        <nav class="sm:flex items-center  hidden gap-3">
+            <a class="font-medium" href="/">Home</a>
+            <a class="font-medium" href="/listings">All Listing</a>
+            <a class="font-medium" href="/listings/new">Add New Listing</a>
+        </nav>
+        <button id="navbtn" class="w-10 h-8 relative sm:hidden shadow-sm shadow-black rounded-sm">
+            <div class="absolute w-full top-[25%]">
+
+                <div class="  h-[2px] mx-auto  bg-slate-500 w-[50%]"></div>
+            </div>
+            <div class="absolute w-full top-[50%]">
+
+                <div class="  h-[2px] mx-auto  bg-slate-500 w-[50%]"></div>
+            </div>
+            <div class="absolute w-full top-[75%]">
+
+                <div class="  h-[2px] mx-auto  bg-slate-500 w-[50%]"></div>
+            </div>
+        </button>
+    </section>
+    <nav id="collapsedNav"
+        class=" flex flex-col p-2 sm:hidden -translate-y-[400px] origin-toptransition-all duration-500  w-full gap-2 justify-center items-center absolute bg-slate-50 left-0 top-[100%] -z-10">
+        <a class="font-normal" href="/">Home</a>
+        <a class="font-normal" href="/listings">All Listing</a>
+        <a class="font-normal" href="/listings/new">Add New Listing</a>
+    </nav>
+</header>
