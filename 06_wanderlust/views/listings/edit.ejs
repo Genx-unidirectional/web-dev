@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
     <form
         class=" flex w-3/5 mx-auto h-screen items-start p-2 border border-white rounded-lg flex-col  gap-4 text-black "
-        method="post" action="/listings/<%=list._id%>?_method=PATCH">
+        method="post" action="/listings/<%=list._id%>?_method=PUT">
         <h2 class="text-3xl  font-medium">Create a New Listing</h2>
         <div class="w-full">
             <label for="101">Title</label>

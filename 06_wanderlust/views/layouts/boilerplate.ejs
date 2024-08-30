@@ -10,12 +10,14 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="/js/navbtn.js" defer></script>
+    <script src="/js/alert.js" defer></script>
 </head>
 
 <body class="min-h-screen relative w-full bg-white">
     <%- include("../includes/navbar.ejs") %>
         <div class="">
-            <%- body %>
+            <%- include("../includes/alert.ejs") %>
+                <%- body %>
         </div>
         <%- include("../includes/footer.ejs") %>
 </body>

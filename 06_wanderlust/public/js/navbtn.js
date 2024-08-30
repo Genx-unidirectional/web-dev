@@ -6,8 +6,8 @@ btn.addEventListener("click",()=>{
     hiddenNav.classList.toggle("translate-y-0")
 })
 
-hiddenNav.childNodes.addEventListener("click",()=>{
-    hiddenNav.classList.toggle("translate-y-0")
-    hiddenNav.classList.toggle("-translate-y-[400px]")
+// hiddenNav.childNodes.addEventListener("click",()=>{
+//     hiddenNav.classList.toggle("translate-y-0")
+//     hiddenNav.classList.toggle("-translate-y-[400px]")
 
-})
+// })  

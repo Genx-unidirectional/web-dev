@@ -1,0 +1,18 @@
+<% if(error && error.length>0) {%>
+    <div id="failuremsg"
+        class="flex border-red-500 border-2 rounded-md justify-between p-1 px-2 bg-red-300 w-4/5 mx-auto my-2 sm:w-3/5 md:w-1/2 ">
+        <p class="text-lg font-medium text-white">
+            <%= error %>
+        </p>
+        <button id="failurebtn" class="text-lg text-white font-medium">X</button>
+    </div>
+    <% }%>
+        <% if(success && success.length>0) {%>
+            <div id="successmsg"
+                class="flex border-green-500 border-2 rounded-md justify-between p-1 px-2 bg-green-300 w-4/5 mx-auto my-2 sm:w-3/5 md:w-1/2 ">
+                <p class="text-lg font-medium text-white">
+                    <%= success %>
+                </p>
+                <button id="successbtn" class="text-lg text-white font-medium">X</button>
+            </div>
+            <% }%>
