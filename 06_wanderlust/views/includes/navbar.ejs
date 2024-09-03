@@ -6,10 +6,24 @@
                 <i class="fa-regular fa-compass text-red-500 text-3xl"></i>
             </a>
         </h1>
-        <nav class="sm:flex items-center  hidden gap-3">
-            <a class="font-medium" href="/">Home</a>
-            <a class="font-medium" href="/listings">All Listing</a>
-            <a class="font-medium" href="/listings/new">Add New Listing</a>
+        <nav class="sm:flex sm:items-center sm:justify-between hidden flex-1  gap-4 ">
+            <div class="flex gap-4">
+
+                <a class="font-medium" href="/">Home</a>
+                <a class="font-medium" href="/listings">All Listing</a>
+                <a class="font-medium" href="/listings/new">Add New Listing</a>
+            </div>
+            <div class="flex gap-4">
+                <% if(currUser){ %>
+                    <a class="font-medium" href="/logout">Logout</a>
+
+                    <% } %>
+                        <% if(!currUser){ %>
+                            <a class="font-medium" href="/signup">Signup</a>
+                            <a class="font-medium" href="/login">Login</a>
+                            <% } %>
+
+            </div>
         </nav>
         <button id="navbtn" class="w-10 h-8 relative sm:hidden shadow-sm shadow-black rounded-sm">
             <div class="absolute w-full top-[25%]">
@@ -31,5 +45,13 @@
         <a class="font-normal" href="/">Home</a>
         <a class="font-normal" href="/listings">All Listing</a>
         <a class="font-normal" href="/listings/new">Add New Listing</a>
+        <% if(currUser){ %>
+            <a class="font-medium" href="/logout">Logout</a>
+
+            <% } %>
+                <% if(!currUser){ %>
+                    <a class="font-medium" href="/signup">Signup</a>
+                    <a class="font-medium" href="/login">Login</a>
+                    <% } %>
     </nav>
 </header>

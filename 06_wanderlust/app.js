@@ -7,10 +7,14 @@ const path = require("path");
 const methodOverride = require("method-override")
 const ejsMate = require("ejs-mate");
 const ExpressError= require("./utils/ExpressError.js")
-const reviews = require("./routes/reviews.js")
-const listings  = require("./routes/listing.js")
+const reviewsRoute = require("./routes/reviews.js")
+const listingsRoute  = require("./routes/listing.js")
+const userRoute  = require("./routes/user.js")
 const session = require("express-session")
 const flash = require("connect-flash")
+const passport = require("passport")
+const localStrategy = require("passport-local")
+const User = require("./models/user.js");
 const sessionOptions = {
   secret:"mysupersecretstring",
   resave:false,
@@ -20,7 +24,7 @@ const sessionOptions = {
     maxAge:7*24*60*60*1000
   },
   httpOnly:true
-}
+};
 app.use(express.static(path.join(__dirname,"public")))
 app.set("views",path.join(__dirname,"views"))
 app.set("view engine", "ejs");
@@ -29,6 +33,11 @@ app.use(methodOverride("_method"))
 app.engine("ejs",ejsMate)
 app.use(session(sessionOptions))
 app.use(flash());
+app.use(passport.initialize())
+app.use(passport.session())
+passport.use(new localStrategy(User.authenticate()))
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 async function main() {
   mongoose.connect(MONGODB_URL);
 }
@@ -36,25 +45,42 @@ main()
   .then((res) => console.log("connection made at app.js top level file"))
   .catch((err) => {
     console.log(err);
-  });
+});
+
 
 app.get("/", (req, res) => {
   res.send("i am root");
 });
 
+app.get("/demouser",async(req,res)=>{
+  let fakeUser = new User({
+    email:"some@example.com",
+    username:"delta-student"
+  })
+  const registeredUser =await  User.register(fakeUser,"helloWorld")
+  console.log(registeredUser)
+  res.send(registeredUser)
+})
+
 //FOR MAKING SINGLE MESSAGE SHOWN ON PAGE WHEN USER ADDS NEW LISTING
 app.use((req,res,next)=>{
   res.locals.success = req.flash("success")
   res.locals.error = req.flash("error")
+  res.locals.currUser = req.user
   next();
 })
 
 
 //FOR ALL LISTING RELATED ROUTES
-app.use("/listings",listings)
+app.use("/listings",listingsRoute)
 
 //FOR ALL REVIEWS RELATED ROUTES
-app.use("/listings/:id/review",reviews)
+app.use("/listings/:id/review",reviewsRoute)
+
+//FOR ALL USER RELATED ROUTES
+app.use("/",userRoute)
+
+
 
 app.all("*",(req,res,next)=>{
   next(new ExpressError(404,"page not found"))

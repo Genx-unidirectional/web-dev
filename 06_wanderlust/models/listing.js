@@ -1,3 +1,4 @@
+const { ref, defaults } = require("joi");
 const Review = require("./reviews.js")
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
@@ -7,7 +8,11 @@ const listingSchema = new Schema({
   description: String,
   image: {
     filename: String,
-    url: String,
+    url: {
+      type:String,
+      default:"https://images.unsplash.com/photo-1598183092516-6c5d92367a4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBhbG0lMjBiZWFjaHxlbnwwfHwwfHx8MA%3D%3D",
+      set:(v)=>v===""? "https://images.unsplash.com/photo-1598183092516-6c5d92367a4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBhbG0lMjBiZWFjaHxlbnwwfHwwfHx8MA%3D%3D" :v
+    },
   },
   price: Number,
   location: String,
@@ -17,7 +22,11 @@ const listingSchema = new Schema({
     type:Schema.Types.ObjectId,
     ref:"Review"
    }
-  ]
+  ],
+  owner:{
+    type:Schema.Types.ObjectId,
+    ref:"User"
+  }
 });
 
 

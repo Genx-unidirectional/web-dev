@@ -15,6 +15,10 @@
 
                 <%= listing.description %>
             </p>
+            <p class="">
+                owned by,<%= listing.owner.username %>
+
+            </p>
             <p>
 
                 <%= new Intl.NumberFormat("en-IN", { style: "currency" , currency: "INR" , minimumFractionDigits: 2,
@@ -26,54 +30,61 @@
                     ,
                     <%= listing.country[0].toUpperCase()+listing.country.slice(1) %>
             </p>
-
-            <div class="flex gap-3 mt-3">
-                <form method="get" action="/listings/<%=listing._id%>/edit">
-                    <button class="bg-black px-4 p-1 rounded-lg text-white">Edit</button>
-                </form>
-                <form method="post" action="/listings/<%=listing._id%>?_method=DELETE">
-                    <button class="bg-red-600 px-4 p-1  rounded-lg text-white">Delete</button>
-                </form>
-            </div>
+            <% if (currUser && currUser._id.equals(listing.owner._id) ){ %>
+                <div class="flex gap-3 mt-3">
+                    <form method="get" action="/listings/<%=listing._id%>/edit">
+                        <button class="bg-black px-4 p-1 rounded-lg text-white">Edit</button>
+                    </form>
+                    <form method="post" action="/listings/<%=listing._id%>?_method=DELETE">
+                        <button class="bg-red-600 px-4 p-1  rounded-lg text-white">Delete</button>
+                    </form>
+                </div>
+                <% } %>
         </section>
         <hr class="w-full bg-slate-900 mb-4">
-        <section class="w-full flex justify-center flex-col items-center ">
-            <h2 class="w-full text-start font-medium text-2xl mb-5">Leave a review</h2>
-            <form method="post" action="/listings/<%=listing._id%>/review"
-                class="flex items-start flex-col gap-1 w-full">
-                <label for="rating" class="text-xl  text-slate-700">Rating</label>
-                <input class="w-full" type="range" min="1" name="review[rating]" max="5" id="rating">
-                <label for="comment" class="text-xl  text-slate-700">Comment</label>
-                <textarea class="w-full border border-black rounded-md" name="review[comment]" rows="5"
-                    id="comment"></textarea>
-                <button class="bg-black px-4 p-1 mt-2  rounded-lg text-white">submit</button>
-            </form>
-        </section>
-        <hr class="w-full bg-slate-900 my-4">
+        <% if(currUser){ %>
+            <section class="w-full flex justify-center flex-col items-center ">
+                <h2 class="w-full text-start font-medium text-2xl mb-5">Leave a review</h2>
+                <form method="post" action="/listings/<%=listing._id%>/review"
+                    class="flex items-start flex-col gap-1 w-full">
+                    <label for="rating" class="text-xl  text-slate-700">Rating</label>
+                    <input class="w-full" type="range" min="1" name="review[rating]" max="5" id="rating">
+                    <label for="comment" class="text-xl  text-slate-700">Comment</label>
+                    <textarea class="w-full border border-black rounded-md" name="review[comment]" rows="5"
+                        id="comment"></textarea>
+                    <button class="bg-black px-4 p-1 mt-2  rounded-lg text-white">submit</button>
+                </form>
+            </section>
+            <%} %>
+                <hr class="w-full bg-slate-900 my-4">
+                <section class="w-full">
+                    <h2 class="text-2xl font-medium mb-5">All Reviews</h2>
+                    <ul class="grid gap-2  md:grid-cols-2 sm:grid-cols-1 w-full ">
+                        <% for(let review of listing.reviews){ %>
+                            <% if(review.author){ %>
+                                <li class="p-4 rounded-lg border  border-black gap-2 flex flex-col">
+                                    <p
+                                        class="text-black text-xl  relative py-6 px-6 w-full text-center before:content-['\201C'] before:font-serif before:text-6xl before:text-slate-600 before:absolute before:top-0 before:-left-2
+                                after:content-['\201D'] after:font-serif after:text-6xl after:text-slate-600 after:absolute after:-bottom-6 after:-right-2">
+                                        <%= review.comment %>
+                                    </p>
+                                    <p class="text-yellow-400  flex gap-2 justify-end items-center w-full">
+                                        <% for(let i=0;i<review.rating;i++){%>
+                                            <i class="fa-solid fa-star"></i>
+                                            <% } %>
+                                    </p>
+                                    <p class=" w-full text-right">
+                                        by <%=review.author.username %>
+                                    </p>
+                                    <form method="post"
+                                        action="/listings/<%=listing._id%>/review/<%=review._id%>?_method=DELETE">
 
-        <section class="w-full">
-            <h2 class="text-2xl font-medium mb-5">All Reviews</h2>
-            <ul class="grid gap-2  md:grid-cols-2 sm:grid-cols-1 w-full ">
-                <% for(let review of listing.reviews){ %>
-                    <li class="p-4 rounded-lg border  border-black gap-2 flex flex-col">
-                        <p
-                            class="text-black text-xl  relative py-6 px-6 w-full text-center before:content-['\201C'] before:font-serif before:text-6xl before:text-slate-600 before:absolute before:top-0 before:-left-2
-                            after:content-['\201D'] after:font-serif after:text-6xl after:text-slate-600 after:absolute after:-bottom-6 after:-right-2">
-                            <%= review.comment %>
-                        </p>
-                        <p class="text-yellow-400  flex gap-2 justify-end items-center w-full">
-                            <% for(let i=0;i<review.rating;i++){%>
-                                <i class="fa-solid fa-star"></i>
+                                        <button class="underline text-red-500 p-1 rounded-lg">Delete</button>
+                                    </form>
+                                </li>
                                 <% } %>
-                        </p>
-                        <p class=" w-full text-right">- by Jhon wick</p>
-                        <form method="post" action="/listings/<%=listing._id%>/review/<%=review._id%>?_method=DELETE">
+                                    <% } %>
 
-                            <button class="underline text-red-500 p-1 rounded-lg">Delete</button>
-                        </form>
-                    </li>
-                    <% } %>
-
-            </ul>
-        </section>
+                    </ul>
+                </section>
     </div>
