@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Switch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="flex items-center">
+        <label for="toggle" class="inline-flex items-center cursor-pointer">
+            <span class="mr-2 text-gray-700">Off</span>
+            <div class="relative">
+                <input id="toggle" type="checkbox" class="sr-only" onclick="toggleColor()">
+                <div class="block bg-gray-300 w-14 h-8 rounded-full"></div>
+                <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+            </div>
+            <span class="ml-2 text-gray-700">On</span>
+        </label>
+    </div>
+
+    <script>
+        function toggleColor() {
+            const dot = document.querySelector('.dot');
+            const isChecked = document.getElementById('toggle').checked;
+            if (isChecked) {
+                dot.classList.add('bg-blue-500');
+                dot.classList.remove('bg-white');
+            } else {
+                dot.classList.add('bg-white');
+                dot.classList.remove('bg-blue-500');
+            }
+        }
+    </script>
+</body>
+
+</html>
