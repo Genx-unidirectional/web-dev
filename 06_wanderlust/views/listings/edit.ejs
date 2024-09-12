@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
     <form
         class=" flex w-3/5 mx-auto h-screen items-start p-2 border border-white rounded-lg flex-col  gap-4 text-black "
-        method="post" action="/listings/<%=list._id%>?_method=PUT">
+        method="post" enctype="multipart/form-data" action="/listings/<%=list._id%>?_method=PUT">
         <h2 class="text-3xl  font-medium">Create a New Listing</h2>
         <div class="w-full">
             <label for="101">Title</label>
@@ -14,10 +14,16 @@
             <textarea class="border border-slate-500 p-1 rounded-md w-full" type="text" name="listing[description]"
                 id="102"><%= list.description %></textarea>
         </div>
+        <div class="w-[150px] h-[150px]">
+            <picture class=" w-full h-full">
+                <source src="<%= originalImageUrl %>">
+                <img class=" " src="<%= originalImageUrl %>" alt="place photo">
+            </picture>
+        </div>
         <div class="w-full">
 
-            <label for="103">Image link</label>
-            <input class="border border-slate-500 p-1 rounded-md w-full" value="<%= list.image.url %>" type="text"
+            <label for="103">Upload new image link</label>
+            <input class="border border-slate-500 p-1 rounded-md w-full" value="<%= list.image.url %>" type="file"
                 id="103" name="listing[imageurl]">
 
         </div>

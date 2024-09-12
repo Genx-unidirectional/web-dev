@@ -1,6 +1,61 @@
 <%- layout("layouts/boilerplate") -%>
+    <div class="w-[95%] mx-auto flex justify-between">
 
-    <h3 class="text-4xl my-3 font-medium text-center">All Listings</h3>
+        <div class=" flex gap-5 my-5 ">
+            <div
+                class="flex justify-center items-center flex-col text-slate-500 hover:text-slate-950 transition-all duration-500">
+                <i class="fa-solid fa-fire"></i>
+                <p>Trending</p>
+            </div>
+            <div
+                class="flex justify-center items-center flex-col text-slate-500 hover:text-slate-950 transition-all duration-500">
+                <i class="fa-solid fa-bed"></i>
+                <p>Rooms</p>
+            </div>
+            <div
+                class="flex justify-center items-center flex-col text-slate-500 hover:text-slate-950 transition-all duration-500">
+                <i class="fa-solid fa-mountain-city"></i>
+                <p>Iconic cities</p>
+            </div>
+            <div
+                class="flex justify-center items-center flex-col text-slate-500 hover:text-slate-950 transition-all duration-500">
+                <i class="fa-solid fa-mountain"></i>
+                <p>Mountains</p>
+            </div>
+            <div
+                class="flex justify-center items-center flex-col text-slate-500 hover:text-slate-950 transition-all duration-500">
+                <i class="fa-brands fa-fort-awesome"></i>
+                <p>castles</p>
+            </div>
+            <div
+                class="flex justify-center items-center flex-col text-slate-500 hover:text-slate-950 transition-all duration-500">
+                <i class="fa-solid fa-person-swimming"></i>
+                <p>Amazing pools</p>
+            </div>
+            <div
+                class="flex justify-center items-center flex-col text-slate-500 hover:text-slate-950 transition-all duration-500">
+                <i class="fa-solid fa-campground"></i>
+                <p>Camping</p>
+            </div>
+            <div
+                class="flex justify-center items-center flex-col text-slate-500 hover:text-slate-950 transition-all duration-500">
+                <i class="fa-solid fa-cow"></i>
+                <p>Farms</p>
+            </div>
+            <div
+                class="flex justify-center  items-center flex-col text-slate-500 hover:text-slate-950 transition-all duration-500">
+                <i class="fa-solid fa-snowflake"></i>
+                <p>Arctic</p>
+            </div>
+        </div>
+        <div class=" flex justify-center items-center   ">
+            <div class="p-2 rounded-lg border border-black  justify-center items-center gap-2 flex flex-grow-0">
+
+                <label for="toggler">show the tax in total</label>
+                <input type="checkbox" name="taxshow" id="toggler">
+            </div>
+        </div>
+    </div>
     <ul class="grid lg:grid-cols-4 md:grid-cols-3 sm:p-3 p-4 sm:grid-cols-2 grid-cols-1  gap-3">
         <% for(let item of allListings){ %>
             <li class="sm:w-11/12 w-4/5 mx-auto">
@@ -14,9 +69,20 @@
                         <h2 class="font-bold ">
                             <%= item.title %>
                         </h2>
-                        <p> &#8377;<%=item.price.toLocaleString("en-IN") %>/night</p>
+                        <div class="flex gap-2">
+
+                            <p> &#8377;<%=item.price.toLocaleString("en-IN") %>/night</p>
+                            <p class="taxContent hidden">18% GST</p>
+                        </div>
                     </div>
                 </a>
             </li>
             <% } %>
     </ul>
+
+    <script>
+        let taxSwitch = document.getElementById("checkthetaxshow")
+        taxSwitch.addEventListener("click", () => {
+            console.log("clicked")
+        })
+    </script>

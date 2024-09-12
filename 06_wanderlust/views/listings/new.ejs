@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
     <form
         class=" flex w-3/5 mx-auto h-screen items-start p-2 border border-white rounded-lg flex-col  gap-4 text-black "
-        method="post" action="/listings">
+        method="post" action="/listings" enctype="multipart/form-data">
         <h2 class="text-3xl  font-medium">Create a New Listing</h2>
         <div class="w-full">
             <label for="101">Title</label>
@@ -9,16 +9,14 @@
                 name="listing[title]" id="101">
         </div>
         <div class="w-full">
-
             <label for="102">Description</label>
-            <textarea class="border border-slate-500 p-1 rounded-md w-full" type="text" name="listing[description]"
+            <textarea class="border border-slate-500 w-full" type="text" name="listing[description]"
                 id="102"></textarea>
         </div>
         <div class="w-full">
 
-            <label for="103">Image link</label>
-            <input class="border border-slate-500 p-1 rounded-md w-full" placeholder="enter image url/link" type="text"
-                id="103" name="listing[imageurl]">
+            <label for="103">Upload listing image</label>
+            <input class="border border-slate-500 p-1 rounded-md w-full" type="file" id="103" name="listing[imageurl]">
 
         </div>
         <div class="w-full flex flex-col gap-3 md:flex-row">

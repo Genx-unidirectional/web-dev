@@ -2,18 +2,23 @@
     <section class="flex z-50 px-2 py-5 bg-white  justify-between sm:justify-normal relative items-center">
 
         <h1 class="px-4 ">
-            <a hre f="/">
+            <a href="/listings">
                 <i class="fa-regular fa-compass text-red-500 text-3xl"></i>
             </a>
         </h1>
-        <nav class="sm:flex sm:items-center sm:justify-between hidden flex-1  gap-4 ">
+        <nav class="sm:flex sm:items-center justify-between sm:justify-between hidden flex-1  gap-4 ">
             <div class="flex gap-4">
 
-                <a class="font-medium" href="/">Home</a>
-                <a class="font-medium" href="/listings">All Listing</a>
-                <a class="font-medium" href="/listings/new">Add New Listing</a>
+                <a class="font-medium" href="/listings">Explore</a>
+            </div>
+            <div class="flex-1 mx-auto gap-2 justify-center flex">
+                <input class="border border-slate-300   rounded-full py-1 px-3" placeholder="Search destination"
+                    type="text" name="search" id="search">
+                <button class="bg-red-500 rounded-full text-white items-center  py-1 flex gap-2 px-3">
+                    <i class="fa-solid fa-magnifying-glass"></i>Search</button>
             </div>
             <div class="flex gap-4">
+                <a class="font-medium" href="/listings/new">Airbnb your home</a>
                 <% if(currUser){ %>
                     <a class="font-medium" href="/logout">Logout</a>
 
@@ -43,8 +48,8 @@
     <nav id="collapsedNav"
         class=" flex flex-col p-2 sm:hidden -translate-y-[400px] origin-toptransition-all duration-500  w-full gap-2 justify-center items-center absolute bg-slate-50 left-0 top-[100%] -z-10">
         <a class="font-normal" href="/">Home</a>
-        <a class="font-normal" href="/listings">All Listing</a>
-        <a class="font-normal" href="/listings/new">Add New Listing</a>
+        <a class="font-normal" href="/listings">Explore</a>
+        <a class="font-normal" href="/listings/new">Airbnb your home</a>
         <% if(currUser){ %>
             <a class="font-medium" href="/logout">Logout</a>
 

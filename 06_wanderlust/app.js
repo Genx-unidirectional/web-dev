@@ -1,7 +1,11 @@
+if(process.env.NODE_ENV!="production"){
+  require("dotenv").config();
+}
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const MONGODB_URL = "mongodb://127.0.0.1:27017/wanderlust";
+// const MONGODB_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const dbUrl = process.env.ATLASDB_URL
 const port = 8080;
 const path = require("path");
 const methodOverride = require("method-override")
@@ -11,11 +15,24 @@ const reviewsRoute = require("./routes/reviews.js")
 const listingsRoute  = require("./routes/listing.js")
 const userRoute  = require("./routes/user.js")
 const session = require("express-session")
+const MongoStore = require('connect-mongo');
 const flash = require("connect-flash")
 const passport = require("passport")
 const localStrategy = require("passport-local")
 const User = require("./models/user.js");
+
+const store = MongoStore.create({
+  mongoUrl:dbUrl,
+  crypto:{
+    secret:"mysupersecretcode"
+  },
+  touchAfter:24*3600
+})
+store.on("error",()=>{
+  console.log("Error in mongo session store",err)
+})
 const sessionOptions = {
+  store,
   secret:"mysupersecretstring",
   resave:false,
   saveUninitialized:true,
@@ -39,7 +56,7 @@ passport.use(new localStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 async function main() {
-  mongoose.connect(MONGODB_URL);
+  mongoose.connect(dbUrl);
 }
 main()
   .then((res) => console.log("connection made at app.js top level file"))
@@ -48,9 +65,7 @@ main()
 });
 
 
-app.get("/", (req, res) => {
-  res.send("i am root");
-});
+
 
 app.get("/demouser",async(req,res)=>{
   let fakeUser = new User({
