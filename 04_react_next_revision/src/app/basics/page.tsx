@@ -1,5 +1,3 @@
-import Button from "@/components/basics/button";
-import TicTacToe from "@/components/basics/tictactoe";
 function Basics() {
   const componentArr: {
     name: string;
@@ -9,10 +7,6 @@ function Basics() {
     //   name: "button",
     //   component: <Button />,
     // },
-    {
-      name: "tictactoe",
-      component: <TicTacToe />,
-    },
   ];
   return (
     <div className="min-h-screen w-full flex justify-center flex-col items-center">
