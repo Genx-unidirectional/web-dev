@@ -1,3 +1,4 @@
+import Counter from "@/components/basics/Counter";
 import MyButton from "@/components/basics/MyButton";
 
 function Basics() {
@@ -9,6 +10,10 @@ function Basics() {
     {
       name: "button",
       component: <MyButton />,
+    },
+    {
+      name: "Counter",
+      component: <Counter />,
     },
   ];
   return (
