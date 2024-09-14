@@ -1,5 +1,6 @@
 import Counter from "@/components/basics/Counter";
 import MyButton from "@/components/basics/MyButton";
+import TicTacToe from "@/components/basics/TicTacToe";
 
 function Basics() {
   const content = [
@@ -14,6 +15,10 @@ function Basics() {
     {
       name: "Counter",
       component: <Counter />,
+    },
+    {
+      name: "TicTacToe",
+      component: <TicTacToe />,
     },
   ];
   return (
