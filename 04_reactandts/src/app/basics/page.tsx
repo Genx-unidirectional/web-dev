@@ -1,5 +1,6 @@
 import Counter from "@/components/basics/Counter";
 import MyButton from "@/components/basics/MyButton";
+import ProductStock from "@/components/basics/ProductStock";
 import TicTacToe from "@/components/basics/TicTacToe";
 
 function Basics() {
@@ -19,6 +20,10 @@ function Basics() {
     {
       name: "TicTacToe",
       component: <TicTacToe />,
+    },
+    {
+      name: "ProductStock",
+      component: <ProductStock />,
     },
   ];
   return (
