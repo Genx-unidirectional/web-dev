@@ -1,3 +1,4 @@
+import AppCrash from "@/components/basics/AppCrash";
 import Counter from "@/components/basics/Counter";
 import MyButton from "@/components/basics/MyButton";
 import ProductStock from "@/components/basics/ProductStock";
@@ -24,6 +25,10 @@ function Basics() {
     {
       name: "ProductStock",
       component: <ProductStock />,
+    },
+    {
+      name: "AppCrash",
+      component: <AppCrash />,
     },
   ];
   return (
