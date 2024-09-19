@@ -1,5 +1,6 @@
 import AppCrash from "@/components/basics/AppCrash";
 import Counter from "@/components/basics/Counter";
+import DraggableBox from "@/components/basics/Draggable/DraggableBox";
 import MyButton from "@/components/basics/MyButton";
 import PendingProblem from "@/components/basics/PendingProblem";
 import ProductStock from "@/components/basics/ProductStock";
@@ -44,6 +45,10 @@ function Basics() {
     {
       name: "Task Queue",
       component: <TaskQueue />,
+    },
+    {
+      name: "Task Queue",
+      component: <DraggableBox />,
     },
   ];
   return (
