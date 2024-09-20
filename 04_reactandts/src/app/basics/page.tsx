@@ -4,8 +4,10 @@ import DraggableBox from "@/components/basics/Draggable/DraggableBox";
 import MyButton from "@/components/basics/MyButton";
 import PendingProblem from "@/components/basics/PendingProblem";
 import ProductStock from "@/components/basics/ProductStock";
+import ShoppingCart from "@/components/basics/ShoppingCart";
 import TaskQueue from "@/components/basics/TaskQueue";
 import TicTacToe from "@/components/basics/TicTacToe";
+import Togglebg from "@/components/basics/Togglebg";
 import Traffic from "@/components/basics/Traffic";
 
 function Basics() {
@@ -49,6 +51,14 @@ function Basics() {
     {
       name: "Task Queue",
       component: <DraggableBox />,
+    },
+    {
+      name: "Product Cart",
+      component: <ShoppingCart />,
+    },
+    {
+      name: "Background toggler",
+      component: <Togglebg />,
     },
   ];
   return (
