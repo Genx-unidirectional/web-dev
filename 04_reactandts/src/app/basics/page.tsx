@@ -1,4 +1,5 @@
 import AppCrash from "@/components/basics/AppCrash";
+import Clock from "@/components/basics/clock/Clock";
 import Counter from "@/components/basics/Counter";
 import DraggableBox from "@/components/basics/Draggable/DraggableBox";
 import MyButton from "@/components/basics/MyButton";
@@ -12,10 +13,6 @@ import Traffic from "@/components/basics/Traffic";
 
 function Basics() {
   const content = [
-    // {
-    //     name:"tictactoe",
-    //     component:
-    // },
     {
       name: "button",
       component: <MyButton />,
@@ -48,10 +45,7 @@ function Basics() {
       name: "Task Queue",
       component: <TaskQueue />,
     },
-    {
-      name: "Task Queue",
-      component: <DraggableBox />,
-    },
+
     {
       name: "Product Cart",
       component: <ShoppingCart />,
@@ -59,6 +53,10 @@ function Basics() {
     {
       name: "Background toggler",
       component: <Togglebg />,
+    },
+    {
+      name: "Clock",
+      component: <Clock />,
     },
   ];
   return (
