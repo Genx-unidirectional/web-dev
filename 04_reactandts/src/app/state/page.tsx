@@ -11,57 +11,13 @@ import TaskQueue from "@/components/basics/TaskQueue";
 import TicTacToe from "@/components/basics/TicTacToe";
 import Togglebg from "@/components/basics/Togglebg";
 import Traffic from "@/components/basics/Traffic";
+import ContactManager from "@/components/state/emailchange";
 
 function Basics() {
   const content = [
     {
-      name: "button",
-      component: <MyButton />,
-    },
-    {
-      name: "Counter",
-      component: <Counter />,
-    },
-    {
-      name: "TicTacToe",
-      component: <TicTacToe />,
-    },
-    {
-      name: "ProductStock",
-      component: <ProductStock />,
-    },
-    {
-      name: "AppCrash",
-      component: <AppCrash />,
-    },
-    {
-      name: "Traffic",
-      component: <Traffic />,
-    },
-    {
-      name: "Pending Problem",
-      component: <PendingProblem />,
-    },
-    {
-      name: "Task Queue",
-      component: <TaskQueue />,
-    },
-
-    {
-      name: "Product Cart",
-      component: <ShoppingCart />,
-    },
-    {
-      name: "Background toggler",
-      component: <Togglebg />,
-    },
-    {
-      name: "Clock",
-      component: <Clock />,
-    },
-    {
-      name: "Mail client",
-      component: <MailClient />,
+      name: "EmailChange",
+      component: <ContactManager />,
     },
   ];
   return (
