@@ -12,12 +12,17 @@ import TicTacToe from "@/components/basics/TicTacToe";
 import Togglebg from "@/components/basics/Togglebg";
 import Traffic from "@/components/basics/Traffic";
 import ContactManager from "@/components/state/emailchange";
+import Gallery from "@/components/state/ImageChange";
 
 function Basics() {
   const content = [
     {
       name: "EmailChange",
       component: <ContactManager />,
+    },
+    {
+      name: "Gallery",
+      component: <Gallery />,
     },
   ];
   return (
