@@ -1,15 +1,10 @@
-import ContactManager from "@/components/state/emailchange";
-import Gallery from "@/components/state/ImageChange";
+import ImageCarousel from "@/components/escape/ImageCarousel";
 
 function Basics() {
   const content = [
     {
-      name: "EmailChange",
-      component: <ContactManager />,
-    },
-    {
-      name: "Gallery",
-      component: <Gallery />,
+      name: "Image Carousel",
+      component: <ImageCarousel />,
     },
   ];
   return (
