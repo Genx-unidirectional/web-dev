@@ -111,3 +111,64 @@ function findMissingNum(arr: number[]) {
 }
 
 console.log(findMissingNum([1, 2, 3, 4, 6, 7, 8, 9]));
+
+//Q-7:count odds in the given range
+
+function countOdd(low: number, high: number) {
+  // If low is even, the first odd number is low + 1. Otherwise, it's low itself.
+  // If high is even, the last odd number is high - 1. Otherwise, it's high itself.
+  // return Math.floor();
+}
+
+// Q-FizzBuzz problem
+
+function fizzBuzz(num: number) {
+  for (let i = 1; i <= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("fizzbuzz");
+    } else if (i % 3 === 0) {
+      console.log("fizz");
+    } else if (i % 5 === 0) {
+      console.log("buzz");
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+// fizzBuzz(15);
+
+//Q-8:Return true if integer is power of two
+
+function checkPower(n: number) {
+  if (n <= 0) {
+    return false;
+  }
+  while (n % 2 === 0) {
+    n /= 2;
+  }
+  return n === 1;
+}
+
+// console.log(checkPower(1));
+
+//Q-9: Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+// You must not use any built-in exponent function or operator.
+
+function root(x: number) {
+  let answer = 0;
+  let i = 0;
+  while (answer === 0) {
+    if (i * i === x) {
+      answer = i;
+    } else {
+      i++;
+      continue;
+    }
+  }
+  return answer;
+}
+
+console.log(root(12));
+
+//task>>>Use binary search algorithm to find the square root of any number
