@@ -1,13 +1,13 @@
 "use strict";
-let a1;
-let a2;
-let a3;
-let a4;
-let a5;
-let a6;
-let a7;
-let a8;
-let a9 = [12, false, "tim"];
-let a10 = [12, false, "tim"];
+var a1;
+var a2;
+var a3;
+var a4;
+var a5;
+var a6;
+var a7;
+var a8;
+var a9 = [12, false, "tim"];
+var a10 = [12, false, "tim"];
 a10 = a9;
 // a9 =a10 can't do this

@@ -6,11 +6,12 @@ function greet(fn) {
 function tell(input) {
     console.log(input);
 }
-const DF1 = (arg) => { };
+var DF1 = function (arg) { };
 DF1.description = "does the job";
 //Generics in typescript
 function firstElement(input) {
-    for (let item of input) {
+    for (var _i = 0, input_1 = input; _i < input_1.length; _i++) {
+        var item = input_1[_i];
         console.log(item);
     }
 }
@@ -41,11 +42,11 @@ function makeDate(timeStampsOrm, d, y) {
         return new Date(timeStampsOrm);
     }
     else {
-        return new Date(`${timeStampsOrm}:${d}${y}`);
+        return new Date("".concat(timeStampsOrm, ":").concat(d).concat(y));
     }
 }
 // Calling this in function
-const user = {
+var user = {
     name: "Ganesh",
     admin: false,
     becomeAdmin: function () {
@@ -85,10 +86,10 @@ function getDb() {
         },
     ];
 }
-const adminArr = (dbGetter, filterCallback) => {
+var adminArr = function (dbGetter, filterCallback) {
     return dbGetter().filter(filterCallback);
 };
-const filterCallback = (input) => {
+var filterCallback = function (input) {
     return input.admin;
 };
 //below function execution return the array with the  user which are admin
@@ -97,10 +98,19 @@ function makeError() {
     throw new Error("this is sample error");
 }
 // using rest parameter in function
-function takeNumbers(...input) { }
+function takeNumbers() {
+    var input = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        input[_i] = arguments[_i];
+    }
+}
 //destructuring in the function parameter
-function testDest({ a = 1, b = 1, c = 1, }) { }
-function testDest2({ a, b, c } = { a: 0, b: 0, c: 0 }) { }
-const testVoid1 = () => {
+function testDest(_a) {
+    var _b = _a.a, a = _b === void 0 ? 1 : _b, _c = _a.b, b = _c === void 0 ? 1 : _c, _d = _a.c, c = _d === void 0 ? 1 : _d;
+}
+function testDest2(_a) {
+    var _b = _a === void 0 ? { a: 0, b: 0, c: 0 } : _a, a = _b.a, b = _b.b, c = _b.c;
+}
+var testVoid1 = function () {
     return 1;
 };

@@ -15,7 +15,8 @@ function padLeft(input, padding) {
 // console.log("" ? "yes" : "no");
 function printAll(input) {
     if (input && typeof input === "object") {
-        for (let i of input) {
+        for (var _i = 0, input_1 = input; _i < input_1.length; _i++) {
+            var i = input_1[_i];
             console.log(i);
         }
     }
@@ -28,7 +29,7 @@ function mapIt(input, factor) {
     if (!input) {
         return input;
     }
-    return input.map((item) => item * factor);
+    return input.map(function (item) { return item * factor; });
 }
 function doAction(livingBeing) {
     if ("swim" in livingBeing) {
@@ -60,27 +61,27 @@ function ops(x) {
 function isFish(pet) {
     return pet.swim !== undefined;
 }
-const petArr = [
+var petArr = [
     {
-        swim: () => { },
+        swim: function () { },
     },
     {
-        swim: () => { },
+        swim: function () { },
     },
     {
-        swim: () => { },
+        swim: function () { },
     },
     {
-        fly: () => { },
+        fly: function () { },
     },
     {
-        swim: () => { },
+        swim: function () { },
     },
     {
-        fly: () => { },
+        fly: function () { },
     },
 ];
-const fishArr = petArr.filter((item) => {
+var fishArr = petArr.filter(function (item) {
     if (isFish(item)) {
         return item;
     }
@@ -89,13 +90,13 @@ console.log(fishArr);
 function area(shape) {
     switch (shape.kind) {
         case "circle": {
-            return Math.PI * shape.radius ** 2;
+            return Math.PI * Math.pow(shape.radius, 2);
         }
         case "square": {
-            return shape.length ** 4;
+            return Math.pow(shape.length, 4);
         }
         default: {
-            const exhaustiveType = shape;
+            var exhaustiveType = shape;
             return exhaustiveType;
         }
     }
