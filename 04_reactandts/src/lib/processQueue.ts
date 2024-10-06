@@ -10,6 +10,5 @@ export function getFinalState(
       finalState = queue[i] as number;
     }
   }
-
   return finalState;
 }

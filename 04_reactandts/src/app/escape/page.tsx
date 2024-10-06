@@ -1,3 +1,5 @@
+import FaultyChat from "@/components/effects/FaultyChat";
+import TodoList from "@/components/effects/todo/TodoComponent";
 import ImageCarousel from "@/components/escape/ImageCarousel";
 import VideoWithRef from "@/components/escape/VideoWithRef";
 
@@ -11,6 +13,11 @@ function Basics() {
       name: "Video With Ref",
       component: <VideoWithRef />,
     },
+    {
+      name: "todo",
+      component: <TodoList />,
+    },
+    { name: "faulty chat", component: <FaultyChat /> },
   ];
   return (
     <div className="min-h-screen w-full">
