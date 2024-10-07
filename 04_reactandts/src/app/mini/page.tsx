@@ -1,4 +1,5 @@
 import Accordion from "@/components/mini/Accordion";
+import Form from "@/components/mini/reacthookform/ReactHookForm";
 import SimpleForm from "@/components/mini/SimpleForm";
 
 function Basics() {
@@ -10,6 +11,10 @@ function Basics() {
     {
       name: "Simple form ",
       component: <SimpleForm />,
+    },
+    {
+      name: "react hook form",
+      component: <Form />,
     },
   ];
   return (
