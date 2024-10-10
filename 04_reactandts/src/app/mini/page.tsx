@@ -1,5 +1,6 @@
 import Accordion from "@/components/mini/Accordion";
 import RouterComponent from "@/components/mini/customRouter";
+import ForwardComponent from "@/components/mini/ForwardComponent.tsx";
 import Form from "@/components/mini/reacthookform/ReactHookForm";
 import SimpleForm from "@/components/mini/SimpleForm";
 import TabTransition from "@/components/mini/transition";
@@ -23,6 +24,10 @@ function Basics() {
       component: <TabTransition />,
     },
     { name: "Router", component: <RouterComponent /> },
+    {
+      name: "Forward Component",
+      component: <ForwardComponent />,
+    },
   ];
   return (
     <div className="min-h-screen w-full">
